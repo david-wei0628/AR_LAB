@@ -45,12 +45,11 @@ public class ARPlacement : MonoBehaviour
 
     void UpdatePlacementIndicator()
     {
-        Vector3 VZ = new Vector3(0, 0, 2);
         //if (spawnedObject == null && placementPoseIsValid)
         if (placementPoseIsValid)
         {
             placementIndicator.SetActive(true);
-            placementIndicator.transform.SetPositionAndRotation(placementIndicator.transform.position + VZ, placementIndicator.transform.rotation);
+            placementIndicator.transform.SetPositionAndRotation(PlacementPose.position, PlacementPose.rotation);
         }
         else
         {
@@ -60,18 +59,19 @@ public class ARPlacement : MonoBehaviour
 
     void UpdatePlacementPose()
     {
-        var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.1f, 0.1f));
+        var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
         var hits = new List<ARRaycastHit>();
         aRRaycastManger.Raycast(screenCenter, hits, TrackableType.Planes);
         placementPoseIsValid = hits.Count > 0;
         if (placementPoseIsValid)
         {
             PlacementPose = hits[0].pose;
-            TExt.text = hits[0].pose.position.ToString();
-            DebugDaw.transform.position = PlacementPose.position;
-            var cameraForward = Camera.current.transform.forward;
-            var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
-            PlacementPose.rotation = Quaternion.LookRotation(cameraBearing);
+            TExt.text = hits[0].pose.position.ToString() + " " + placementIndicator.activeSelf;
+            DebugDaw.transform.SetPositionAndRotation(PlacementPose.position , PlacementPose.rotation);
+
+            //var cameraForward = Camera.current.transform.forward;
+            //var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
+            //PlacementPose.rotation = Quaternion.LookRotation(cameraBearing);
         }
     }
 
