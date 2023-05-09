@@ -67,7 +67,7 @@ public class ARPlacement : MonoBehaviour
         {
             PlacementPose = hits[0].pose;
             TExt.text = hits[0].pose.position.ToString() + " " + placementIndicator.activeSelf;
-            DebugDaw.transform.SetPositionAndRotation(PlacementPose.position , PlacementPose.rotation);
+            //DebugDaw.transform.SetPositionAndRotation(PlacementPose.position , PlacementPose.rotation);
 
             //var cameraForward = Camera.current.transform.forward;
             //var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
