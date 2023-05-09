@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
@@ -20,8 +20,8 @@ public class ARPlacement : MonoBehaviour
 
     void Start()
     {
-        QualitySettings.vSyncCount = 0;//««ª½¦P¨B
-        Application.targetFrameRate = 60;//FPSºÕ¼Æ
+        QualitySettings.vSyncCount = 0;//å‚ç›´åŒæ­¥
+        Application.targetFrameRate = 60;//FPSç¦æ•¸
 
 
         aRRaycastManger = FindObjectOfType<ARRaycastManager>();

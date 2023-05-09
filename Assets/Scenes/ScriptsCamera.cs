@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,9 +26,9 @@ public class ScriptsCamera : MonoBehaviour
         for (int i = 0; i < devices.Length; i++)
         {
 
-            //            if (!devices [i].isFrontFacing) {    //¶}±Ò«áÃèÀY
+            //            if (!devices [i].isFrontFacing) {    //é–‹å•Ÿå¾Œé¡é ­
             if (devices[i].isFrontFacing)
-            {    //¶}±Ò«eÃèÀY
+            {    //é–‹å•Ÿå‰é¡é ­
                 backCam = new WebCamTexture(devices[i].name, Screen.width, Screen.height);
             }
         }
@@ -53,8 +53,8 @@ public class ScriptsCamera : MonoBehaviour
         fit.aspectRatio = ratio;
 
         float scaleY = backCam.videoVerticallyMirrored ? -1f : 1f;
-        //        background.rectTransform.localScale = new Vector3 (1f, scaleY, 1f);    //«DÃè¹³
-        background.rectTransform.localScale = new Vector3(-1f, scaleY, 1f);    //Ãè¹³
+        //        background.rectTransform.localScale = new Vector3 (1f, scaleY, 1f);    //éžé¡åƒ
+        background.rectTransform.localScale = new Vector3(-1f, scaleY, 1f);    //é¡åƒ
 
         int orient = -backCam.videoRotationAngle;
         background.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
