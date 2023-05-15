@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.UI;
+using Unity.Collections;
 
 public class ARPlacement : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class ARPlacement : MonoBehaviour
     private GameObject spawnedObject;
     private Pose PlacementPose;
     private ARRaycastManager aRRaycastManger;
-    private ARPlaneManager aRPlaneManager;
 
     private bool placementPoseIsValid = false;
     public  Text TExt;
@@ -23,7 +23,6 @@ public class ARPlacement : MonoBehaviour
         //Application.targetFrameRate = 60;//FPS禎數
 
         aRRaycastManger = FindObjectOfType<ARRaycastManager>();
-        aRPlaneManager = FindObjectOfType<ARPlaneManager>();
         TExt.text = "START";
     }
 
@@ -60,13 +59,13 @@ public class ARPlacement : MonoBehaviour
     {
         var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.3f));
         var hits = new List<ARRaycastHit>();
-        aRRaycastManger.Raycast(screenCenter, hits, TrackableType.Planes);
+        aRRaycastManger.Raycast(screenCenter, hits, TrackableType.PlaneWithinPolygon);
 
         placementPoseIsValid = hits.Count > 0;
         if (placementPoseIsValid)
         {
             PlacementPose = hits[0].pose;
-            TExt.text = /*hits[0].pose.position.ToString() + " " + */placementIndicator.activeSelf.ToString();
+            //TExt.text = /*hits[0].pose.position.ToString() + " " + */placementIndicator.activeSelf.ToString();
 
             //var cameraForward = Camera.current.transform.forward;
             //var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
