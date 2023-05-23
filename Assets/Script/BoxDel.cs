@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class BoxDel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.y < -10)
+        switch (this.name)
         {
-            Destroy(this.gameObject);
+            case "Sphere":
+                if (this.transform.position.y < -10 && this.name == "Sphere")
+                {
+                    Destroy(this.gameObject);
+                }
+                break;
+            case "CB":
+                this.transform.LookAt(Camera.main.transform.position);
+                break;
+
         }
     }
+
 }
