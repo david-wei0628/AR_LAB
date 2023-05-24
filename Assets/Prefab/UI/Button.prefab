@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -8700732479353990210}
         m_TargetAssemblyTypeName: SC_Change_btn, Assembly-CSharp
-        m_MethodName: OpenListScence
+        m_MethodName: BTN_event
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SC_Change_btn : MonoBehaviour
 {
@@ -37,6 +37,11 @@ public class SC_Change_btn : MonoBehaviour
     }
 
     public void ARPlane_Change(string Scence)
+    {
+        SceneManager.LoadScene(Scence);
+    }
+
+    public void ARFace_Change(string Scence)
     {
         SceneManager.LoadScene(Scence);
     }
